@@ -1,20 +1,19 @@
-import { Button, FormControl, MenuItem, Pagination, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import React, { useState } from 'react';
+import { Button, FormControl, MenuItem, Pagination, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import { Modal } from 'react-bootstrap';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
-import Link from 'next/link';
 
-function createData(id, company_name, desc, amount) {
-    return { id, company_name, desc, amount };
+function createData(id, name, company_name, employee_code) {
+    return { id, name, company_name, employee_code };
 }
 
 const rows = [
-    createData('1', 'PT. Beever System Indonesia', 'Delayed Charge', 'Rp39,000,000'),
-    createData('2', 'PT. Beever System Indonesia', 'Delayed Charge', 'Rp39,000,000'),
-    createData('3', 'PT. Beever System Indonesia', 'Delayed Charge', 'Rp39,000,000'),
+    createData('1', 'Ivan', 'PT. Beever System Indonesia', 'B0010'),
+    createData('2', 'Yudha', 'PT. Beever System Indonesia', 'B0011'),
+    createData('3', 'Hosea', 'PT. Beever System Indonesia', 'B0012'),
 ];
 
-function ModalCalendar({ show, onHide, idDetail }) {
+function ModalCalendar({ show, onHide }) {
     const [pagination, setPagination] = useState(10);
     
     const handlePagination = (event) => {
@@ -31,17 +30,17 @@ function ModalCalendar({ show, onHide, idDetail }) {
             <Modal.Body>
                 <div className='bhr-modal ps-3 pt-3 pe-3 pb-0'>
                     <div className='d-flex align-items-center justify-content-between mb-4'>
-                        <h4 className='mb-0'>Detail Tagihan <small>20 December 2022</small></h4>
-                        <h3 className='mb-0'>Rp 43,000,000</h3>
+                        <h4 className='mb-0'>Outgoing Together <small>23 Feb 2023</small></h4>
+                        <h3 className='mb-0'>All Employee</h3>
                     </div>
                     <div className='bhr-table-custom'>
                         <TableContainer>
                             <Table>
                                 <TableHead>
                                     <TableRow>
+                                        <TableCell>Name</TableCell>
                                         <TableCell>Company Name</TableCell>
-                                        <TableCell>Amount</TableCell>
-                                        <TableCell>Action</TableCell>
+                                        <TableCell>Employee Code</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -51,12 +50,10 @@ function ModalCalendar({ show, onHide, idDetail }) {
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
                                             <TableCell>
-                                                {row.company_name}
+                                                {row.name}
                                             </TableCell>
-                                            <TableCell>{row.amount}</TableCell>
-                                            <TableCell>
-                                                <Link href={"/"} className="bhr-link">See Detail</Link>
-                                            </TableCell>
+                                            <TableCell>{row.company_name}</TableCell>
+                                            <TableCell>{row.employee_code}</TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

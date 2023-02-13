@@ -5,8 +5,8 @@ import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { ReactSVG } from 'react-svg'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import UserPicture from '../../../../assets/img/user.png';
-import FilterIcon from '../../../../assets/svg/FilterTable.svg';
+import UserPicture from '../../../assets/img/user.png';
+import FilterIcon from '../../../assets/svg/FilterTable.svg';
 
 function TableAttandance() {
     const [search, setSearch] = useState('');

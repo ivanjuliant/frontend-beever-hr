@@ -1,16 +1,16 @@
 import React from 'react';
-import Headerbar from '../../layout/header';
-import Sidebar from '../../layout/sidebar';
+import Headerbar from '../../components/layout/header';
+import Sidebar from '../../components/layout/sidebar';
 import Chart from 'react-apexcharts';
-import { formatRupiah } from '../../helpers/currencyFormat';
+import { formatRupiah } from '../../components/helpers/currencyFormat';
 import { Nav, Tab } from 'react-bootstrap';
 import TableAttandance from './components/tableAttandance';
 import { ReactSVG } from 'react-svg';
-import AttandanceIcon from '../../../assets/svg/Attandance.svg';
-import LeaveIcon from '../../../assets/svg/Leave.svg';
-import OvertimeIcon from '../../../assets/svg/Overtime.svg';
-import SalaryIcon from '../../../assets/svg/Salary.svg';
-import ReimburseIcon from '../../../assets/svg/Reimburse.svg';
+import AttandanceIcon from '../../assets/svg/Attandance.svg';
+import LeaveIcon from '../../assets/svg/Leave.svg';
+import OvertimeIcon from '../../assets/svg/Overtime.svg';
+import SalaryIcon from '../../assets/svg/Salary.svg';
+import ReimburseIcon from '../../assets/svg/Reimburse.svg';
 
 const DashboardComponent = () => {
     let labelFormatter = (value) => {
