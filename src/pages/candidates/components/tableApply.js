@@ -9,7 +9,7 @@ import PlusIcon from '../../../assets/svg/Plus.svg';
 import DownloadIcon from '../../../assets/svg/Download.svg';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
 
-function TableAttandance() {
+function TableApply() {
     const [search, setSearch] = useState('');
     const [pagination, setPagination] = useState(10);
 
@@ -147,4 +147,4 @@ function TableAttandance() {
     )
 }
 
-export default TableAttandance
+export default TableApply

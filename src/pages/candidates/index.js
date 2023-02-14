@@ -3,6 +3,10 @@ import Headerbar from '../../components/layout/header';
 import Sidebar from '../../components/layout/sidebar';
 import { Button, Nav, Tab } from 'react-bootstrap';
 import TableApply from './components/tableApply';
+import { ReactSVG } from 'react-svg';
+import TotalCandidatesIcon from '../../assets/svg/Total_Candidates.svg';
+import AcceptedCandidatesIcon from '../../assets/svg/Accepted_Candidates.svg';
+import RejectedCandidatesIcon from '../../assets/svg/Rejected_Candidates.svg';
 
 const CandidatesComponent = () => {
     return (
@@ -17,6 +21,48 @@ const CandidatesComponent = () => {
                                 <div className='bhr-dashboard-container-content-left'>
                                     <div className='bhr-dashboard-container-content-left-title'>
                                         <h1>Candidates</h1>
+                                    </div>
+
+                                    <div className='row mb-4'>
+                                        <div className='col-12 col-md-4'>
+                                            <div className='card bhr-card'>
+                                                <div className='card-body'>
+                                                    <div className='bhr-card-summary p-1'>
+                                                        <div>
+                                                            <p>Total Candidates</p>
+                                                            <h3>230</h3>
+                                                        </div>
+                                                        <ReactSVG src={TotalCandidatesIcon} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-12 col-md-4'>
+                                            <div className='card bhr-card'>
+                                                <div className='card-body'>
+                                                    <div className='bhr-card-summary p-1'>
+                                                        <div>
+                                                            <p>Accepted Candidate</p>
+                                                            <h3>230</h3>
+                                                        </div>
+                                                        <ReactSVG src={AcceptedCandidatesIcon} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='col-12 col-md-4'>
+                                            <div className='card bhr-card'>
+                                                <div className='card-body'>
+                                                    <div className='bhr-card-summary p-1'>
+                                                        <div>
+                                                            <p>Rejected Candidate</p>
+                                                            <h3>230</h3>
+                                                        </div>
+                                                        <ReactSVG src={RejectedCandidatesIcon} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div className='card bhr-card'>
