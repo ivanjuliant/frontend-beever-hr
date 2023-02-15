@@ -1,15 +1,17 @@
-import { FormControl, InputAdornment, OutlinedInput, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { FormControl, IconButton, InputAdornment, OutlinedInput, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import moment from 'moment'
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { ReactSVG } from 'react-svg'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import UserPicture from '../../../assets/img/user.png';
 import FilterIcon from '../../../assets/svg/FilterTable.svg';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 function TableAttandance() {
     const [search, setSearch] = useState('');
+    const [modalShow, setModalShow] = React.useState(false);
 
     const handleSearch = (event) => {
         setSearch(event.target.value);
@@ -49,6 +51,10 @@ function TableAttandance() {
                         </div>
                     </div>
                     <div className='bhr-table'>
+                        <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                         <TableContainer>
                             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                 <TableHead>
@@ -56,12 +62,12 @@ function TableAttandance() {
                                         <TableCell>No</TableCell>
                                         <TableCell>Name</TableCell>
                                         <TableCell>Kode Employee</TableCell>
-                                        <TableCell>Job Title</TableCell>
+                                        <TableCell>Shift</TableCell>
+                                        <TableCell>Attendance Type</TableCell>
                                         <TableCell>Clock In</TableCell>
                                         <TableCell>Clock Out</TableCell>
-                                        <TableCell>Range Waktu</TableCell>
-                                        <TableCell>Deduction</TableCell>
-                                        <TableCell align='center'>Status</TableCell>
+                                        <TableCell>Status</TableCell>
+                                        <TableCell align='center'>Action</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -78,13 +84,17 @@ function TableAttandance() {
                                                     </div>
                                                 </TableCell>
                                                 <TableCell>B0014</TableCell>
-                                                <TableCell>UX Designer</TableCell>
-                                                <TableCell>08:40 AM</TableCell>
-                                                <TableCell>17:00 PM</TableCell>
-                                                <TableCell>12 Menit</TableCell>
-                                                <TableCell className="text-danger">-Rp. 20.000</TableCell>
+                                                <TableCell>10 Februari 2023</TableCell>
+                                                <TableCell>11 Februari 2023</TableCell>
+                                                <TableCell>1 hari</TableCell>
+                                                <TableCell>Cuti Pendidikan</TableCell>
+                                                <TableCell>
+                                                    <div className='bhr-status-field bhr-status-label-info'>
+                                                        <span className='fw-bold'>Approve</span>
+                                                    </div>
+                                                </TableCell>
                                                 <TableCell align='center'>
-                                                    <span className="fw-600 bg-info bhr-badge">Tepat Waktu</span>
+                                                    <Button variant='primary' className='bhr-btn-table-primary' onClick={() => setModalShow(true)}>Detail</Button>
                                                 </TableCell>
                                             </TableRow>
                                         }
@@ -100,13 +110,17 @@ function TableAttandance() {
                                                     </div>
                                                 </TableCell>
                                                 <TableCell>B0014</TableCell>
-                                                <TableCell>UX Designer</TableCell>
-                                                <TableCell>08:40 AM</TableCell>
-                                                <TableCell>17:00 PM</TableCell>
-                                                <TableCell>12 Menit</TableCell>
-                                                <TableCell className="text-danger">-Rp. 20.000</TableCell>
+                                                <TableCell>10 Februari 2023</TableCell>
+                                                <TableCell>11 Februari 2023</TableCell>
+                                                <TableCell>1 hari</TableCell>
+                                                <TableCell>Cuti Pendidikan</TableCell>
+                                                <TableCell>
+                                                    <div className='bhr-status-field bhr-status-label-danger'>
+                                                        <span className='fw-bold'>Terlambat</span>
+                                                    </div>
+                                                </TableCell>
                                                 <TableCell align='center'>
-                                                    <span className="fw-600 bg-danger bhr-badge">Terlambat</span>
+                                                    <Button variant='primary' className='bhr-btn-table-primary' onClick={() => setModalShow(true)}>Detail</Button>
                                                 </TableCell>
                                             </TableRow>
                                         }
@@ -120,5 +134,75 @@ function TableAttandance() {
         </div>
     )
 }
+
+function MyVerticallyCenteredModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="md"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Body className='bhr-modal'>
+                <div className='bhr-modal-title mb-3'>
+                    <h4>Detail Attendance</h4>
+                    <IconButton onClick={props.onHide}>
+                        <CloseRoundedIcon />
+                    </IconButton>
+                </div>
+                <h5>Data Employee</h5>
+                <div className='bhr-modal-list mb-4'>
+                    <div className='w-100 mb-1'>
+                        <label>Name</label>
+                        <span>: Raplh Edward</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Kode Employee</label>
+                        <span>: B0014</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Organization</label>
+                        <span>: IT Service</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Job Position</label>
+                        <span>: UX Research</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Shift</label>
+                        <span>: WFH (Work From Home)</span>
+                    </div>
+                </div>
+                <h5>Data Attendance</h5>
+                <div className='bhr-modal-list mb-4'>
+                    <div className='w-100 mb-1'>
+                        <label>Attendance Type</label>
+                        <span>: Live Attendance</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Clock In</label>
+                        <span>: 08:40 AM</span>
+                        <Link to={"/"} target="_blank">Lihat Foto</Link>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Clock Out</label>
+                        <span>: 17:00 PM</span>
+                        <Link to={"/"} target="_blank">Lihat Foto</Link>
+                    </div>
+                    <div className='w-100 d-flex align-items-center mb-1'>
+                        <label>Status</label>
+                        <span>:&nbsp;</span>
+                        <div className='bhr-status-field bhr-status-label-info'>
+                            <span>Approve</span>
+                        </div>
+                    </div>
+                </div>
+                <h6>Location</h6>
+                <p>GoWork Plaza Indonesia, Level 5 Unit E021AB, Jl. M.H. Thamrin No.Kav. 28-30, Daerah Khusus Ibukota Jakarta 10350</p>
+            </Modal.Body>
+        </Modal>
+    );
+}
+
 
 export default TableAttandance

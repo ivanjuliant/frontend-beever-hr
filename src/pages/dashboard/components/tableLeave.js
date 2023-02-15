@@ -1,15 +1,17 @@
-import { FormControl, InputAdornment, OutlinedInput, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { FormControl, IconButton, InputAdornment, OutlinedInput, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import moment from 'moment'
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { ReactSVG } from 'react-svg'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import UserPicture from '../../../assets/img/user.png';
 import FilterIcon from '../../../assets/svg/FilterTable.svg';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 function TableLeave() {
     const [search, setSearch] = useState('');
+    const [modalShow, setModalShow] = React.useState(false);
 
     const handleSearch = (event) => {
         setSearch(event.target.value);
@@ -49,6 +51,10 @@ function TableLeave() {
                         </div>
                     </div>
                     <div className='bhr-table'>
+                        <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                         <TableContainer>
                             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                 <TableHead>
@@ -84,12 +90,11 @@ function TableLeave() {
                                                 <TableCell>Cuti Pendidikan</TableCell>
                                                 <TableCell>
                                                     <div className='bhr-status-field bhr-status-label-info'>
-                                                        <div className='bg-label'></div>
-                                                        <span>Approve</span>
+                                                        <span className='fw-bold'>Approve</span>
                                                     </div>
                                                 </TableCell>
                                                 <TableCell align='center'>
-                                                    <Button variant='primary' className='bhr-btn-table-primary'>Detail</Button>
+                                                    <Button variant='primary' className='bhr-btn-table-primary' onClick={() => setModalShow(true)}>Detail</Button>
                                                 </TableCell>
                                             </TableRow>
                                         } else if (index === 1) {
@@ -110,12 +115,11 @@ function TableLeave() {
                                                 <TableCell>Cuti Pendidikan</TableCell>
                                                 <TableCell>
                                                     <div className='bhr-status-field bhr-status-label-danger'>
-                                                        <div className='bg-label'></div>
-                                                        <span>Reject</span>
+                                                        <span className='fw-bold'>Reject</span>
                                                     </div>
                                                 </TableCell>
                                                 <TableCell align='center'>
-                                                    <Button variant='primary' className='bhr-btn-table-primary'>Detail</Button>
+                                                    <Button variant='primary' className='bhr-btn-table-primary' onClick={() => setModalShow(true)}>Detail</Button>
                                                 </TableCell>
                                             </TableRow>
                                         }
@@ -137,12 +141,11 @@ function TableLeave() {
                                                 <TableCell>Cuti Pendidikan</TableCell>
                                                 <TableCell>
                                                     <div className='bhr-status-field bhr-status-label-muted'>
-                                                        <div className='bg-label'></div>
-                                                        <span>Pending</span>
+                                                        <span className='fw-bold'>Pending</span>
                                                     </div>
                                                 </TableCell>
                                                 <TableCell align='center'>
-                                                    <Button variant='primary' className='bhr-btn-table-primary'>Detail</Button>
+                                                    <Button variant='primary' className='bhr-btn-table-primary' onClick={() => setModalShow(true)}>Detail</Button>
                                                 </TableCell>
                                             </TableRow>
                                         }
@@ -155,6 +158,73 @@ function TableLeave() {
             </div>
         </div>
     )
+}
+
+function MyVerticallyCenteredModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="md"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Body className='bhr-modal'>
+                <div className='bhr-modal-title mb-3'>
+                    <h4>Detail Leave</h4>
+                    <IconButton onClick={props.onHide}>
+                        <CloseRoundedIcon />
+                    </IconButton>
+                </div>
+                <h5>Data Employee</h5>
+                <div className='bhr-modal-list mb-4'>
+                    <div className='w-100 mb-1'>
+                        <label>Name</label>
+                        <span>: Raplh Edward</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Kode Employee</label>
+                        <span>: B0014</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Organization</label>
+                        <span>: IT Service</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Job Position</label>
+                        <span>: UX Research</span>
+                    </div>
+                </div>
+                <h5>Data Leave Request</h5>
+                <div className='bhr-modal-list mb-4'>
+                    <div className='w-100 mb-1'>
+                        <label>Start Date</label>
+                        <span>: 10 Februari 2023</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>End Date</label>
+                        <span>: 11 Februari 2023</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Range Leave</label>
+                        <span>: 1 Days</span>
+                    </div>
+                    <div className='w-100 mb-1'>
+                        <label>Leave Type</label>
+                        <span>: Cuti Pendidikan</span>
+                    </div>
+                    <div className='w-100 d-flex align-items-center mb-1'>
+                        <label>Status</label>
+                        <span>:&nbsp;</span>
+                        <div className='bhr-status-field bhr-status-label-info'>
+                            <span>Approve</span>
+                        </div>
+                    </div>
+                </div>
+                <h6>Leave Reason</h6>
+                <p>Mengambil ijazah dan mengurus keperluan untuk wisuda</p>
+            </Modal.Body>
+        </Modal>
+    );
 }
 
 export default TableLeave

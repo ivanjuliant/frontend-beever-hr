@@ -21,7 +21,7 @@ function TableAttandance() {
                 <div className='card-body p-4'>
                     <div className='w-100 d-flex align-items-center justify-content-between'>
                         <div className='bhr-recent-left'>
-                            <h1 className='bhr-title'>Attandance</h1>
+                            <h1 className='bhr-title'>Overtime</h1>
                             <p>{moment().format("DD MMMM YYYY")}</p>
                         </div>
                         <div className='bhr-recent-right'>
@@ -56,12 +56,11 @@ function TableAttandance() {
                                         <TableCell>No</TableCell>
                                         <TableCell>Name</TableCell>
                                         <TableCell>Kode Employee</TableCell>
-                                        <TableCell>Job Title</TableCell>
-                                        <TableCell>Clock In</TableCell>
-                                        <TableCell>Clock Out</TableCell>
-                                        <TableCell>Range Waktu</TableCell>
-                                        <TableCell>Deduction</TableCell>
-                                        <TableCell align='center'>Status</TableCell>
+                                        <TableCell>Overtime Date</TableCell>
+                                        <TableCell>Overtime Type</TableCell>
+                                        <TableCell>Duration</TableCell>
+                                        <TableCell>Status</TableCell>
+                                        <TableCell>Action</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
