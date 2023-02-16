@@ -12,6 +12,9 @@ import OvertimeIcon from '../../assets/svg/Overtime.svg';
 import SalaryIcon from '../../assets/svg/Salary.svg';
 import ReimburseIcon from '../../assets/svg/Reimburse.svg';
 import TableLeave from './components/tableLeave';
+import TableOvertime from './components/tableOvertime';
+import TableSalary from './components/tableSalary';
+import TableReimburse from './components/tableReimburse';
 
 const DashboardComponent = () => {
     let labelFormatter = (value) => {
@@ -308,13 +311,13 @@ const DashboardComponent = () => {
                                                 <TableLeave />
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="overtime">
-                                                <TableAttandance />
+                                                <TableOvertime />
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="salary">
-                                                <TableAttandance />
+                                                <TableSalary />
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="reimburse">
-                                                <TableAttandance />
+                                                <TableReimburse />
                                             </Tab.Pane>
                                         </Tab.Content>
                                     </Tab.Container>

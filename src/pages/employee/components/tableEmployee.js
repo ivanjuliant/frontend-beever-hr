@@ -96,7 +96,7 @@ function TableEmployee() {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className='bhr-dropdown-show'>
-                                                    <Dropdown.Item href="#">Detail</Dropdown.Item>
+                                                    <Dropdown.Item href="/employee/detail">Detail</Dropdown.Item>
                                                     <Dropdown.Item href="#">Transfer</Dropdown.Item>
                                                     <Dropdown.Item href="#">Resign</Dropdown.Item>
                                                     <Dropdown.Item href="#">Delete</Dropdown.Item>
@@ -133,7 +133,7 @@ function TableEmployee() {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className='bhr-dropdown-show'>
-                                                    <Dropdown.Item href="#">Detail</Dropdown.Item>
+                                                    <Dropdown.Item href="/employee/detail">Detail</Dropdown.Item>
                                                     <Dropdown.Item href="#">Transfer</Dropdown.Item>
                                                     <Dropdown.Item href="#">Resign</Dropdown.Item>
                                                     <Dropdown.Item href="#">Delete</Dropdown.Item>
@@ -170,7 +170,7 @@ function TableEmployee() {
                                                 </Dropdown.Toggle>
 
                                                 <Dropdown.Menu className='bhr-dropdown-show'>
-                                                    <Dropdown.Item href="#">Detail</Dropdown.Item>
+                                                    <Dropdown.Item href="/employee/detail">Detail</Dropdown.Item>
                                                     <Dropdown.Item href="#">Transfer</Dropdown.Item>
                                                     <Dropdown.Item href="#">Resign</Dropdown.Item>
                                                     <Dropdown.Item href="#">Delete</Dropdown.Item>

@@ -3,6 +3,7 @@ import DashboardComponent from "./pages/dashboard";
 import CalendarComponent from "./pages/calendar";
 import CandidatesComponent from "./pages/candidates";
 import EmployeeComponent from "./pages/employee";
+import DetailEmployeeComponent from "./pages/employee/components/detailEmployee";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/calendar" element={<CalendarComponent />} />
                 <Route path="/candidates" element={<CandidatesComponent />} />
                 <Route path="/employee" element={<EmployeeComponent />} />
+                <Route path="/employee/detail" element={<DetailEmployeeComponent />} />
             </Routes>
         </div>
     );

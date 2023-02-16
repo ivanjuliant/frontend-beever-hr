@@ -8,7 +8,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import UserPicture from '../../../assets/img/user.png';
 import FilterIcon from '../../../assets/svg/FilterTable.svg';
 
-function TableAttandance() {
+function TableSalary() {
     const [search, setSearch] = useState('');
 
     const handleSearch = (event) => {
@@ -21,7 +21,7 @@ function TableAttandance() {
                 <div className='card-body p-4'>
                     <div className='w-100 d-flex align-items-center justify-content-between'>
                         <div className='bhr-recent-left'>
-                            <h1 className='bhr-title'>Attandance</h1>
+                            <h1 className='bhr-title'>Salary Advance</h1>
                             <p>{moment().format("DD MMMM YYYY")}</p>
                         </div>
                         <div className='bhr-recent-right'>
@@ -56,60 +56,30 @@ function TableAttandance() {
                                         <TableCell>No</TableCell>
                                         <TableCell>Name</TableCell>
                                         <TableCell>Kode Employee</TableCell>
-                                        <TableCell>Job Title</TableCell>
-                                        <TableCell>Clock In</TableCell>
-                                        <TableCell>Clock Out</TableCell>
-                                        <TableCell>Range Waktu</TableCell>
-                                        <TableCell>Deduction</TableCell>
-                                        <TableCell align='center'>Status</TableCell>
+                                        <TableCell>Request Time</TableCell>
+                                        <TableCell>Disbursement Time</TableCell>
+                                        <TableCell>Rekening Bank</TableCell>
+                                        <TableCell>Amount</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {[...Array(5)].map((row, index) => {
-                                        if (index < 3) {
-                                            return <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                                <TableCell>{index + 1}</TableCell>
-                                                <TableCell width={"17%"}>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className='bhr-title-picture'>
-                                                            <img src={UserPicture} alt="User" />
-                                                        </div>
-                                                        <p className='mb-0'>Ralph Edwards</p>
+                                        return <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                            <TableCell>{index + 1}</TableCell>
+                                            <TableCell width={"17%"}>
+                                                <div className='d-flex align-items-center'>
+                                                    <div className='bhr-title-picture'>
+                                                        <img src={UserPicture} alt="User" />
                                                     </div>
-                                                </TableCell>
-                                                <TableCell>B0014</TableCell>
-                                                <TableCell>UX Designer</TableCell>
-                                                <TableCell>08:40 AM</TableCell>
-                                                <TableCell>17:00 PM</TableCell>
-                                                <TableCell>12 Menit</TableCell>
-                                                <TableCell className="text-danger">-Rp. 20.000</TableCell>
-                                                <TableCell align='center'>
-                                                    <span className="fw-600 bg-info bhr-badge">Tepat Waktu</span>
-                                                </TableCell>
-                                            </TableRow>
-                                        }
-                                        else {
-                                            return <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                                <TableCell>{index + 1}</TableCell>
-                                                <TableCell width={"17%"}>
-                                                    <div className='d-flex align-items-center'>
-                                                        <div className='bhr-title-picture'>
-                                                            <img src={UserPicture} alt="User" />
-                                                        </div>
-                                                        <p className='mb-0'>Ralph Edwards</p>
-                                                    </div>
-                                                </TableCell>
-                                                <TableCell>B0014</TableCell>
-                                                <TableCell>UX Designer</TableCell>
-                                                <TableCell>08:40 AM</TableCell>
-                                                <TableCell>17:00 PM</TableCell>
-                                                <TableCell>12 Menit</TableCell>
-                                                <TableCell className="text-danger">-Rp. 20.000</TableCell>
-                                                <TableCell align='center'>
-                                                    <span className="fw-600 bg-danger bhr-badge">Terlambat</span>
-                                                </TableCell>
-                                            </TableRow>
-                                        }
+                                                    <p className='mb-0'>Ralph Edwards</p>
+                                                </div>
+                                            </TableCell>
+                                            <TableCell>B0014</TableCell>
+                                            <TableCell>10 Februari 2023 10:30</TableCell>
+                                            <TableCell>11 Februari 2023 09:00</TableCell>
+                                            <TableCell>Ralph Edward  - BCA (16118559)</TableCell>
+                                            <TableCell>Rp. 150.000</TableCell>
+                                        </TableRow>
                                     })}
                                 </TableBody>
                             </Table>
@@ -121,4 +91,4 @@ function TableAttandance() {
     )
 }
 
-export default TableAttandance
+export default TableSalary
